@@ -37,9 +37,9 @@ var styles = map[string][2]string{
 	"italic":        {"3", "23"},
 	"underline":     {"4", "24"},
 	"blinking":      {"5", "25"},
-	"inverse":       {"7", "25"},
+	"inverse":       {"7", "27"},
 	"hidden":        {"8", "28"},
-	"strikethrough": {"9", "28"},
+	"strikethrough": {"9", "29"},
 }
 
 //	Makes the string bold
