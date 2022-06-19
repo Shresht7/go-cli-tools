@@ -4,42 +4,31 @@ import (
 	"github.com/Shresht7/go-cli-tools/ansi/codes"
 )
 
-//	Clears the screen
-func Screen() string {
-	return codes.Escape("[J")
-}
+const (
+	//	Clears the screen
+	Screen = codes.CSI + "J"
 
-//	Clears cursor and below
-func ClearCursorAndBelow() string {
-	return codes.Escape("[0J")
-}
+	//	Clears cursor and below
+	CursorAndBelow = codes.CSI + "0J"
 
-//	Clears cursor and above
-func ClearCursorAndAbove() string {
-	return codes.Escape("[1J")
-}
+	//	Clears cursor and above
+	CursorAndAbove = codes.CSI + "1J"
 
-//	Clears the entire screen
-func EntireScreen() string {
-	return codes.Escape("[2J")
-}
+	//	Clears the entire screen
+	EntireScreen = codes.CSI + "2J"
 
-//	Clear line
-func Line() string {
-	return codes.Escape("[K")
-}
+	//	Clears saved lines
+	SavedLines = codes.CSI + "3J"
 
-//	Clear line from cursor
-func ClearLineFromCursor() string {
-	return codes.Escape("[0K")
-}
+	//	Clear line
+	Line = codes.CSI + "K"
 
-//	Clear line to cursor
-func ClearLineToCursor() string {
-	return codes.Escape("[1K")
-}
+	//	Clear line from cursor
+	LineFromCursor = codes.CSI + "0K"
 
-//	Clear entire line
-func ClearEntireLine() string {
-	return codes.Escape("[2K")
-}
+	//	Clear line to cursor
+	LineToCursor = codes.CSI + "1K"
+
+	//	Clear entire line
+	EntireLine = codes.CSI + "2K"
+)
