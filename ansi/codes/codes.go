@@ -1,6 +1,9 @@
 package codes
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 //	Escape Code
 const ESC = "\u001b"
@@ -16,45 +19,47 @@ const CTRL = "^["
 const OSC = "\u001B]"
 const BEL = "\u0007"
 
+//	-------
+//	HELPERS
+//	-------
+type ANSICode struct {
+	open  string
+	close string
+}
+
+//  Helper function to format the given ANSI codes
+func Code(codes ...string) *ANSICode {
+
+	//	Check if the codes are valid
+	if len(codes) < 2 {
+		panic("Invalid ANSI codes")
+	}
+
+	//	The slice of opening codes
+	openCodes := codes[:len(codes)-1]
+	//	The closing code
+	closeCode := codes[len(codes)-1]
+
+	//	Format the codes
+	open := CSI + strings.Join(openCodes, ";") + "m"
+	close := CSI + closeCode + "m"
+
+	return &ANSICode{
+		open,
+		close,
+	}
+}
+
+//	Wrap ANSI Codes around string
+func Wrap(str string, codes []string, enabled ...bool) string {
+	if enabled[0] {
+		ansiCode := Code(codes...)
+		str = ansiCode.open + str + ansiCode.close
+	}
+	return str
+}
+
 //	Returns the escape sequence
-func Escape(format string, args ...interface{}) string {
+func Escape(format string, args ...any) string {
 	return fmt.Sprintf("%s%s", ESC, fmt.Sprintf(format, args...))
-}
-
-//	Wrap the string in escape codes
-func Wrap(str string, codes [2]string) string {
-	return Escape("[%sm", codes[0]) + str + Escape("[%sm", codes[1])
-}
-
-//	MISCELLANEOUS
-//	-------------
-
-//	Bell notification
-func Bell() string {
-	return BEL
-}
-
-//	Link
-func Link(text, url string) string {
-	return OSC + "8;;" + url + BEL + text + OSC + "8;;" + BEL
-}
-
-//	Save Screen
-func SaveScreen() string {
-	return Escape("[?47h")
-}
-
-//	Load Screen
-func LoadScreen() string {
-	return Escape("[?47l")
-}
-
-//	Enable Alt Buffer
-func EnableAltBuffer() string {
-	return Escape("[?1049h")
-}
-
-//	Disable Alt Buffer
-func DisableAltBuffer() string {
-	return Escape("[?1049l")
 }

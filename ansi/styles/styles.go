@@ -31,7 +31,7 @@ func PadRight(s string, count int) string {
 //	STYLES
 //	======
 
-var styles = map[string][2]string{
+var styles = map[string][]string{
 	"bold":          {"1", "22"},
 	"faint":         {"2", "22"},
 	"italic":        {"3", "23"},
@@ -44,40 +44,40 @@ var styles = map[string][2]string{
 
 //	Makes the string bold
 func Bold(str string) string {
-	return codes.Wrap(str, styles["bold"])
+	return codes.Wrap(str, styles["bold"], true)
 }
 
 //	Makes the string faint
 func Faint(str string) string {
-	return codes.Wrap(str, styles["faint"])
+	return codes.Wrap(str, styles["faint"], true)
 }
 
 //	Makes the string italic
 func Italic(str string) string {
-	return codes.Wrap(str, styles["italic"])
+	return codes.Wrap(str, styles["italic"], true)
 }
 
 //	Makes the string underlined
 func Underline(str string) string {
-	return codes.Wrap(str, styles["underline"])
+	return codes.Wrap(str, styles["underline"], true)
 }
 
 //	Makes the string blink
 func Blinking(str string) string {
-	return codes.Wrap(str, styles["blinking"])
+	return codes.Wrap(str, styles["blinking"], true)
 }
 
 //	Inverts the string's colors
 func Inverse(str string) string {
-	return codes.Wrap(str, styles["inverse"])
+	return codes.Wrap(str, styles["inverse"], true)
 }
 
 //	Hides the string
 func Hidden(str string) string {
-	return codes.Wrap(str, styles["hidden"])
+	return codes.Wrap(str, styles["hidden"], true)
 }
 
 //	Strikethrough a string
 func Strikethrough(str string) string {
-	return codes.Wrap(str, styles["strikethrough"])
+	return codes.Wrap(str, styles["strikethrough"], true)
 }
