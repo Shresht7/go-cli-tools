@@ -32,7 +32,7 @@ func PadRight(s string, count int) string {
 //	======
 
 var styles = map[string][]string{
-	"bold":          {"1", "22"},
+	"bold":          {"1", "22"}, //	21 doesn't work for some reason, 22 does the trick though
 	"faint":         {"2", "22"},
 	"italic":        {"3", "23"},
 	"underline":     {"4", "24"},
@@ -40,6 +40,7 @@ var styles = map[string][]string{
 	"inverse":       {"7", "27"},
 	"hidden":        {"8", "28"},
 	"strikethrough": {"9", "29"},
+	"reset":         {"0", "0"},
 }
 
 //	Makes the string bold
@@ -80,4 +81,9 @@ func Hidden(str string) string {
 //	Strikethrough a string
 func Strikethrough(str string) string {
 	return codes.Wrap(str, styles["strikethrough"], true)
+}
+
+//	Resets the string
+func Reset(str string) string {
+	return codes.Wrap(str, styles["reset"], true)
 }
