@@ -5,6 +5,10 @@ import (
 	"strings"
 )
 
+//	=================
+//	ANSI ESCAPE CODES
+//	=================
+
 //	Escape Code
 const ESC = "\u001b"
 
@@ -22,6 +26,7 @@ const BEL = "\u0007"
 //	-------
 //	HELPERS
 //	-------
+
 type ANSICode struct {
 	open  string
 	close string
