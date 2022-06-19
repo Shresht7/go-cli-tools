@@ -3,7 +3,7 @@ package styles
 import (
 	"strings"
 
-	"github.com/Shresht7/go-cli-tools/helpers"
+	"github.com/Shresht7/go-cli-tools/ansi/codes"
 )
 
 //	=======
@@ -44,40 +44,40 @@ var styles = map[string][2]string{
 
 //	Makes the string bold
 func Bold(str string) string {
-	return helpers.Wrap(str, styles["bold"])
+	return codes.Wrap(str, styles["bold"])
 }
 
 //	Makes the string faint
 func Faint(str string) string {
-	return helpers.Wrap(str, styles["faint"])
+	return codes.Wrap(str, styles["faint"])
 }
 
 //	Makes the string italic
 func Italic(str string) string {
-	return helpers.Wrap(str, styles["italic"])
+	return codes.Wrap(str, styles["italic"])
 }
 
 //	Makes the string underlined
 func Underline(str string) string {
-	return helpers.Wrap(str, styles["underline"])
+	return codes.Wrap(str, styles["underline"])
 }
 
 //	Makes the string blink
 func Blinking(str string) string {
-	return helpers.Wrap(str, styles["blinking"])
+	return codes.Wrap(str, styles["blinking"])
 }
 
 //	Inverts the string's colors
 func Inverse(str string) string {
-	return helpers.Wrap(str, styles["inverse"])
+	return codes.Wrap(str, styles["inverse"])
 }
 
 //	Hides the string
 func Hidden(str string) string {
-	return helpers.Wrap(str, styles["hidden"])
+	return codes.Wrap(str, styles["hidden"])
 }
 
 //	Strikethrough a string
 func Strikethrough(str string) string {
-	return helpers.Wrap(str, styles["strikethrough"])
+	return codes.Wrap(str, styles["strikethrough"])
 }

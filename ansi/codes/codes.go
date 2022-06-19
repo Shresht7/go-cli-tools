@@ -1,16 +1,20 @@
-package helpers
+package codes
 
 import "fmt"
 
 //	Escape Code
 const ESC = "\u001b"
 
-//	Reset Code
-const RESET = "\u001b[0m"
+//	Control Sequence Introducer
+const CSI = ESC + "["
 
-//	Bell
-const BEL = "\u0007"
+//	Reset Code
+const RESET = CSI + "0m"
+
+//	Miscellaneous
+const CTRL = "^["
 const OSC = "\u001B]"
+const BEL = "\u0007"
 
 //	Returns the escape sequence
 func Escape(format string, args ...interface{}) string {
