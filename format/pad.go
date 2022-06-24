@@ -7,18 +7,17 @@ import "strings"
 //	=======
 
 //	Apply padding around the string
-func Pad(s string, count int) string {
-	space := strings.Repeat(" ", count)
-	s = space + s + space
-	return s
+func Pad(s, char string, count int) string {
+	space := strings.Repeat(char, count)
+	return space + s + space
 }
 
 //	Apply padding to the left of the string
-func PadLeft(s string, count int) string {
-	return strings.Repeat(" ", count) + s
+func PadLeft(s, char string, count int) string {
+	return strings.Repeat(char, count) + s
 }
 
 //	Apply padding to the right of the string
-func PadRight(s string, count int) string {
-	return s + strings.Repeat(" ", count)
+func PadRight(s, char string, count int) string {
+	return s + strings.Repeat(char, count)
 }
