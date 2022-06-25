@@ -21,7 +21,7 @@ func TestPipe(t *testing.T) {
 		},
 		{
 			desc:     "should pipe the given functions",
-			actual:   Compose(WrapAngularBrackets, WrapDash, WrapWhitespace)("Hello Go"),
+			actual:   Pipe(WrapAngularBrackets, WrapDash, WrapWhitespace)("Hello Go"),
 			expected: " -<Hello Go>- ",
 		},
 	}

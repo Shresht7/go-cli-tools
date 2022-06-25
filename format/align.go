@@ -79,7 +79,12 @@ func applyPadding(s string, opts *AlignOptions, space int) string {
 	case "Left":
 		return PadRight(s, opts.Pad, space)
 	case "Center":
-		return Pad(s, opts.Pad, space)
+		half := int(math.Floor(float64(space) / 2.0))
+		if space%2 == 0 {
+			return Pad(s, opts.Pad, half)
+		} else {
+			return strings.Repeat(opts.Pad, half) + s + strings.Repeat(opts.Pad, half+1)
+		}
 	case "Right":
 		return PadLeft(s, opts.Pad, space)
 	}
