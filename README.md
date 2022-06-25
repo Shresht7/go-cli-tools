@@ -1,5 +1,4 @@
-# go-cli-tools
---------------
+<h1>go-cli-tools</h1>
 
 <h2 align='center'>🚧Work In Progress🚧</h2>
 
@@ -9,15 +8,19 @@ Command-line tools and utilities for Go projects.
 
 <summary>Table of Contents</summary>
 
-- [# go-cli-tools](#-go-cli-tools)
 - [📦 ANSI Modules](#-ansi-modules)
   - [🎨 Colors](#-colors)
   - [💄 Styles](#-styles)
   - [☝ Cursor](#-cursor)
   - [🧼 Clear](#-clear)
-  - [RegExp](#regexp)
-  - [Symbols](#symbols)
-  - [Status](#status)
+  - [🅰 RegExp](#-regexp)
+- [📚 Helpers](#-helpers)
+  - [🏭 Composition](#-composition)
+- [📃 Format](#-format)
+  - [Align](#align)
+  - [Pad](#pad)
+- [✔ Symbols](#-symbols)
+- [✔ Status](#-status)
 - [📑 License](#-license)
 
 </details>
@@ -72,7 +75,7 @@ fmt.Println(clear.EntireLine)
 fmt.Println(clear.Screen)
 ```
 
-### RegExp
+### 🅰 RegExp
 
 Regular expressions to capture ansi codes. The `Strip` helper function can remove all ansi escape codes from a string.
 
@@ -84,7 +87,50 @@ text = codes.Strip(text)
 fmt.Println(text)
 ```
 
-### Symbols
+---
+
+## 📚 Helpers
+
+### 🏭 Composition
+
+Composition helpers provide two utility functions compose and pipe that allow you to combine many ansi functions together.
+
+```go
+import "github.com/Shresht7/go-cli-tools/helpers"
+import "github.com/Shresht7/go-cli-tools/ansi/colors"
+import "github.com/Shresht7/go-cli-tools/ansi/styles"
+
+styler = helpers.Compose(colors.Blue, styles.Bold, colors.BgWhite)
+text = styler("Function Composition!")
+```
+
+---
+
+## 📃 Format
+
+### Align
+
+Align text to the left, center or right.
+
+```go
+import "github.com/Shresht7/go-cli-tools/format"
+var text string = "..."
+fmt.Println(format.Align(text, &format.AlignOptions{ Mode: "Center" }))
+```
+
+### Pad
+
+Apply padding around the text.
+
+```go
+import "github.com/Shresht7/go-cli-tools/format"
+var text string = "..."
+fmt.Println(format.Pad(text, " ", 5))
+```
+
+---
+
+## ✔ Symbols
 
 Unicode symbols for the terminal
 
@@ -105,7 +151,7 @@ fmt.Println("Controls: ", symbols.ArrowUp, symbols.ArrowDown, symbol.ArrowLeft, 
 //  Controls: ↑ ↓ ← →
 ```
 
-### Status
+## ✔ Status
 
 The `status` package includes some commonly used symbols with color.
 
