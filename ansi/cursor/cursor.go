@@ -1,67 +1,61 @@
 package cursor
 
 import (
+	"fmt"
+
 	"github.com/Shresht7/go-cli-tools/ansi/codes"
 )
 
 //	Moves the cursor back to home position (0, 0)
-func ToHome() string {
-	return codes.Escape("[H")
-}
+const ToHome = codes.CSI + "H"
 
 //	Moves the cursor back to the given row and column
 func ToPos(row, column int) string {
-	return codes.Escape("[%d;%dH", row, column)
+	return codes.CSI + fmt.Sprintf("%d;%dH", row, column)
 }
 
 //	Moves the cursor up by n number of lines
 func Up(n int) string {
-	return codes.Escape("[%dA", n)
+	return codes.CSI + fmt.Sprintf("%dA", n)
 }
 
 //	Moves the cursor down by n number of lines
 func Down(n int) string {
-	return codes.Escape("[%dB", n)
+	return codes.CSI + fmt.Sprintf("%dB", n)
 }
 
 //	Moves the cursor right by n number of lines
 func Right(n int) string {
-	return codes.Escape("[%dC", n)
+	return codes.CSI + fmt.Sprintf("%dC", n)
 }
 
 //	Moves the cursor left by n number of lines
 func Left(n int) string {
-	return codes.Escape("[%dD", n)
+	return codes.CSI + fmt.Sprintf("%dD", n)
 }
 
 //	Moves the cursor to the nth next line
 func ToNextLine(n int) string {
-	return codes.Escape("[%dE", n)
+	return codes.CSI + fmt.Sprintf("%dE", n)
 }
 
 //	Moves the cursor to the nth prev line
 func ToPrevLine(n int) string {
-	return codes.Escape("[%dF", n)
+	return codes.CSI + fmt.Sprintf("%dF", n)
 }
 
 //	Moves the cursor to a given column position
 func ToColumn(n int) string {
-	return codes.Escape("[%dG", n)
+	return codes.CSI + fmt.Sprintf("%dG", n)
 }
 
 //	Returns the current cursor position
-func RequestPosition() string {
-	return codes.Escape("[%6n")
-}
+const RequestPosition = codes.CSI + "%6n"
 
 //	Show the cursor
-func Show() string {
-	return codes.Escape("[?25h")
-}
+const Show = codes.CSI + "?25h"
 
 //	Hide the cursor
-func Hide() string {
-	return codes.Escape("[?25l")
-}
+const Hide = codes.CSI + "?25l"
 
 //	? Save and Restore

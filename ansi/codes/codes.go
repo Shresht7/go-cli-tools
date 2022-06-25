@@ -1,7 +1,6 @@
 package codes
 
 import (
-	"fmt"
 	"strings"
 )
 
@@ -64,9 +63,4 @@ func Wrap(str string, codes []string, enabled ...bool) string {
 		str = ansiCode.open + str + ansiCode.close
 	}
 	return str
-}
-
-//	Returns the escape sequence
-func Escape(format string, args ...any) string {
-	return fmt.Sprintf("%s%s", ESC, fmt.Sprintf(format, args...))
 }

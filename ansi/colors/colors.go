@@ -1,6 +1,7 @@
 package colors
 
 import (
+	"fmt"
 	"strconv"
 	"strings"
 
@@ -242,10 +243,10 @@ func BrightBgWhite(str string) string {
 
 //	Color the string with RGB values
 func RGB(str string, r, g, b int) string {
-	return codes.Escape("[38;2;%d;%d;%dm%s%s", r, g, b, str, codes.RESET)
+	return codes.CSI + fmt.Sprintf("38;2;%d;%d;%dm%s%s", r, g, b, str, codes.RESET)
 }
 
 //	Color the string bg with RGB values
 func BgRGB(str string, r, g, b int) string {
-	return codes.Escape("[48;2;%d;%d;%dm%s%s", r, g, b, str, codes.RESET)
+	return codes.CSI + fmt.Sprintf("48;2;%d;%d;%dm%s%s", r, g, b, str, codes.RESET)
 }
