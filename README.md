@@ -16,6 +16,9 @@ Command-line tools and utilities for Go projects.
   - [☝ Cursor](#-cursor)
   - [🧼 Clear](#-clear)
   - [RegExp](#regexp)
+  - [Symbols](#symbols)
+  - [Status](#status)
+- [📑 License](#-license)
 
 </details>
 
@@ -80,3 +83,42 @@ var text string = "..."
 text = codes.Strip(text)
 fmt.Println(text)
 ```
+
+### Symbols
+
+Unicode symbols for the terminal
+
+```
+✔ ℹ ⚠ ✖ ☰ ↑ ↓ ← → ♪ ♫ ■ ● ․ … › ▲ ▴ ▼ ▾ ◂ ▸ ⌂ ♥ ↔ ↕ ≈ ≠ ≤ ≥ ≡ ∞ ෴ ★ ▶ ⬢
+```
+
+```go
+import "github.com/Shresht7/go-cli-tools/symbols"
+
+fmt.Println(symbols.Warning, "Are you sure?")
+//  ⚠ Are you sure?
+
+fmt.Println(symbols.Tick, "Done")
+//  ✔ Done
+
+fmt.Println("Controls: ", symbols.ArrowUp, symbols.ArrowDown, symbol.ArrowLeft, symbols.ArrowRight)
+//  Controls: ↑ ↓ ← →
+```
+
+### Status
+
+The `status` package includes some commonly used symbols with color.
+
+<!-- TODO: Status Symbols Screenshot -->
+
+```go
+import "github.com/Shresht7/go-cli-tools/status"
+
+fmt.Println(status.Tick, "Done")  //  ✔ Done
+```
+
+---
+
+## 📑 License
+
+> [MIT License](./LICENSE)
