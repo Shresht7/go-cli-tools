@@ -15,12 +15,14 @@ const ESC = "\u001b"
 //	Control Sequence Introducer
 const CSI = ESC + "["
 
+//	Operating System Command
+const OSC = ESC + "]"
+
 //	Reset Code
 const RESET = CSI + "0m"
 
 //	Miscellaneous
 const CTRL = "^["
-const OSC = "\u001B]"
 const BEL = "\u0007"
 
 //	-------
