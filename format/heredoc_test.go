@@ -44,3 +44,33 @@ func TestHereDoc(t *testing.T) {
 		}
 	}
 }
+
+func TestHereDocf(t *testing.T) {
+
+	// Setup test cases
+	cases := []struct {
+		in, want string
+	}{
+		{"", ""},
+		{HereDocf("%s", "DO IT"), "DO IT"},
+		{HereDocf("%d", 30), "30"},
+		{
+			HereDocf("%s - %d", "ABC", 30),
+			"ABC - 30",
+		},
+		{
+			HereDocf(`
+			%s - %d
+			`, "ABC", 30),
+			"ABC - 30",
+		},
+	}
+
+	// Run test cases
+	for _, c := range cases {
+		if c.in != c.want {
+			t.Errorf("Docf(%q) == %q, want %q", c.in, c.in, c.want)
+		}
+	}
+
+}
