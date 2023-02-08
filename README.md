@@ -1,6 +1,4 @@
-<h1>go-cli-tools</h1>
-
-<h2 align='center'>🚧Work In Progress🚧</h2>
+# go-cli-tools
 
 Command-line tools and utilities for Go projects.
 
@@ -8,21 +6,22 @@ Command-line tools and utilities for Go projects.
 
 <summary>Table of Contents</summary>
 
-- [📦 ANSI Modules](#-ansi-modules)
-  - [🎨 Colors](#-colors)
-  - [💄 Styles](#-styles)
-  - [☝ Cursor](#-cursor)
-  - [🧼 Clear](#-clear)
-  - [🅰 RegExp](#-regexp)
-- [📚 Helpers](#-helpers)
-  - [🏭 Composition](#-composition)
-- [📃 Format](#-format)
-  - [Align](#align)
-  - [HereDoc](#heredoc)
-  - [Pad](#pad)
-- [✔ Symbols](#-symbols)
-- [✔ Status](#-status)
-- [📑 License](#-license)
+- [go-cli-tools](#go-cli-tools)
+  - [📦 ANSI Modules](#-ansi-modules)
+    - [🎨 Colors](#-colors)
+    - [💄 Styles](#-styles)
+    - [☝ Cursor](#-cursor)
+    - [🧼 Clear](#-clear)
+    - [🅰 RegExp](#-regexp)
+  - [📚 Helpers](#-helpers)
+    - [🏭 Composition](#-composition)
+  - [📃 Format](#-format)
+    - [Align](#align)
+    - [HereDoc](#heredoc)
+    - [Pad](#pad)
+  - [✔ Symbols](#-symbols)
+  - [✔ Status](#-status)
+  - [📑 License](#-license)
 
 </details>
 
@@ -42,6 +41,12 @@ fmt.Println(colors.BgWhite("Dwarf"))
 fmt.Println(colors.RGB("Supernova", 224, 65, 137))
 ```
 
+<div align="right">
+
+  [⬆ Back to Top][top]
+
+</div>
+
 ### 💄 Styles
 
 The styles package allows you to format your text.
@@ -52,6 +57,12 @@ import "github.com/Shresht7/go-cli-tools/ansi/styles"
 fmt.Println(styles.Bold("GO"))
 fmt.Println(styles.Hidden("Secret"))
 ```
+
+<div align="right">
+
+  [⬆ Back to Top][top]
+
+</div>
 
 ### ☝ Cursor
 
@@ -65,6 +76,12 @@ fmt.Print(cursor.Up(3))
 fmt.Print(cursor.ToNextLine(5))
 ```
 
+<div align="right">
+
+  [⬆ Back to Top][top]
+
+</div>
+
 ### 🧼 Clear
 
 The clear package provides helper functions to clear the terminal.
@@ -75,6 +92,12 @@ import "github.com/Shresht7/go-cli-tools/ansi/clear"
 fmt.Println(clear.EntireLine)
 fmt.Println(clear.Screen)
 ```
+
+<div align="right">
+
+  [⬆ Back to Top][top]
+
+</div>
 
 ### 🅰 RegExp
 
@@ -87,6 +110,12 @@ var text string = "..."
 text = codes.Strip(text)
 fmt.Println(text)
 ```
+
+<div align="right">
+
+  [⬆ Back to Top][top]
+
+</div>
 
 ---
 
@@ -105,6 +134,12 @@ styler = helpers.Compose(colors.Blue, styles.Bold, colors.BgWhite)
 text = styler("Function Composition!")
 ```
 
+<div align="right">
+
+  [⬆ Back to Top][top]
+
+</div>
+
 ---
 
 ## 📃 Format
@@ -118,6 +153,12 @@ import "github.com/Shresht7/go-cli-tools/format"
 var text string = "..."
 fmt.Println(format.Align(text, &format.AlignOptions{ Mode: "Center" }))
 ```
+
+<div align="right">
+
+  [⬆ Back to Top][top]
+
+</div>
 
 ### HereDoc
 
@@ -136,6 +177,12 @@ var text string = format.HereDoc(`
 //  a template.
 ```
 
+<div align="right">
+
+  [⬆ Back to Top][top]
+
+</div>
+
 ### Pad
 
 Apply padding around the text.
@@ -145,6 +192,12 @@ import "github.com/Shresht7/go-cli-tools/format"
 var text string = "..."
 fmt.Println(format.Pad(text, " ", 5))
 ```
+
+<div align="right">
+
+  [⬆ Back to Top][top]
+
+</div>
 
 ---
 
@@ -169,6 +222,13 @@ fmt.Println("Controls: ", symbols.ArrowUp, symbols.ArrowDown, symbol.ArrowLeft, 
 //  Controls: ↑ ↓ ← →
 ```
 
+<div align="right">
+
+  [⬆ Back to Top][top]
+
+</div>
+
+
 ## ✔ Status
 
 The `status` package includes some commonly used symbols with color.
@@ -181,8 +241,20 @@ import "github.com/Shresht7/go-cli-tools/status"
 fmt.Println(status.Tick, "Done")  //  ✔ Done
 ```
 
+<div align="right">
+
+  [⬆ Back to Top][top]
+
+</div>
+
 ---
 
 ## 📑 License
 
-> [MIT License](./LICENSE)
+This project is licensed under the [MIT License](LICENSE) - see the [LICENSE](LICENSE) file for details.
+
+<!-- ====== -->
+<!-- FOOTER -->
+<!-- ====== -->
+
+[top]: #go-cli-tools
