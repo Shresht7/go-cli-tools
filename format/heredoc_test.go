@@ -1,6 +1,7 @@
 package format
 
 import (
+	"fmt"
 	"testing"
 )
 
@@ -73,4 +74,48 @@ func TestHereDocf(t *testing.T) {
 		}
 	}
 
+}
+
+// Simple example
+func ExampleHereDoc_simple() {
+	// Print a here-document
+	fmt.Println(HereDoc(`
+		Hello, World!
+	`))
+	// Output:
+	// Hello, World!
+}
+
+// Multiline example
+func ExampleHereDoc_multiline() {
+	// Print a here-document
+	fmt.Println(HereDoc(`
+		Hello,
+			World!
+	`))
+	// Output:
+	// Hello,
+	// 	World!
+}
+
+// Simple example
+func ExampleHereDocf_simple() {
+	// Print a here-document
+	fmt.Println(HereDocf(`
+		%s
+	`, "Hello, World!"))
+	// Output:
+	// Hello, World!
+}
+
+// Multiline example
+func ExampleHereDocf_multiline() {
+	// Print a here-document
+	fmt.Println(HereDocf(`
+		%s,
+			%s!
+	`, "Hello", "World"))
+	// Output:
+	// Hello,
+	// 	World!
 }
