@@ -1,3 +1,3 @@
 module github.com/Shresht7/go-cli-tools
 
-go 1.20
+go 1.19
