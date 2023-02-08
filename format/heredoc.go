@@ -16,8 +16,8 @@ func HereDoc(s string) string {
 		s = s[1:]
 	}
 
-	// Remove trailing empty lines
-	s = strings.TrimRight(s, "\n")
+	// Remove trailing whitespace
+	s = strings.TrimRight(s, "\n\t\r")
 
 	// Split string into lines
 	lines := strings.Split(s, "\n")
