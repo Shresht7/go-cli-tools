@@ -14,16 +14,14 @@ func TestHereDoc(t *testing.T) {
 		{"Hello, World!", "Hello, World!"},
 		{`Hello, World!`, `Hello, World!`},
 		{`
-			Hello, World!
-			`,
+			Hello, World!`,
 			"Hello, World!",
 		},
 		{`
 			One
 			Two
 			Three
-				GO!
-			`,
+				GO!`,
 			"One\nTwo\nThree\n\tGO!",
 		},
 	}
