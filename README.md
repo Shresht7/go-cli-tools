@@ -18,6 +18,7 @@ Command-line tools and utilities for Go projects.
   - [🏭 Composition](#-composition)
 - [📃 Format](#-format)
   - [Align](#align)
+  - [HereDoc](#heredoc)
   - [Pad](#pad)
 - [✔ Symbols](#-symbols)
 - [✔ Status](#-status)
@@ -116,6 +117,23 @@ Align text to the left, center or right.
 import "github.com/Shresht7/go-cli-tools/format"
 var text string = "..."
 fmt.Println(format.Align(text, &format.AlignOptions{ Mode: "Center" }))
+```
+
+### HereDoc
+
+HereDoc is a helper function to create a multi-line string.
+
+```go
+import "github.com/Shresht7/go-cli-tools/format"
+var text string = format.HereDoc(`
+    This is a multi-line string
+    that can be used to create
+      a template.
+`)
+// Output:
+// This is a multi-line string
+// that can be used to create
+//  a template.
 ```
 
 ### Pad
