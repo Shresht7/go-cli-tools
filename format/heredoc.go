@@ -16,13 +16,3 @@ func HereDoc(s string) string {
 func HereDocf(format string, args ...any) string {
 	return fmt.Sprintf(format, args...)
 }
-
-// removeIndentation removes the given number of spaces from the beginning of each line.
-func removeIndentation(lines []string, n int) []string {
-	for i, line := range lines {
-		if len(line) > n {
-			lines[i] = line[n:]
-		}
-	}
-	return lines
-}
