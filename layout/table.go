@@ -65,24 +65,26 @@ func (t *Table) WithRightAlign(b bool) *Table {
 // RENDER
 // ------
 
+func writeRow(tw *tabwriter.Writer, row []string) {
+	for _, col := range row {
+		tw.Write([]byte(col))
+		tw.Write([]byte("\t"))
+	}
+	tw.Write([]byte("\n"))
+}
+
 func (t *Table) String() string {
 	sb := strings.Builder{}
 	tw := tabwriter.NewWriter(&sb, t.minwidth, t.tabwidth, t.padding, t.padchar, t.flags)
 
 	// Write headers
-	for _, header := range t.headers {
-		tw.Write([]byte(header))
-		tw.Write([]byte("\t"))
+	if len(t.headers) > 0 {
+		writeRow(tw, t.headers)
 	}
-	tw.Write([]byte("\n"))
 
 	// Write data
 	for _, row := range t.data {
-		for _, col := range row {
-			tw.Write([]byte(col))
-			tw.Write([]byte("\t"))
-		}
-		tw.Write([]byte("\n"))
+		writeRow(tw, row)
 	}
 
 	tw.Flush()
