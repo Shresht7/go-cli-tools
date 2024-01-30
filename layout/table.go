@@ -12,10 +12,10 @@ type Table struct {
 	headers []string
 	data    [][]string
 
-	minwidth int
-	tabwidth int
+	minWidth int
+	tabWidth int
 	padding  int
-	padchar  byte
+	padChar  byte
 	flags    uint
 }
 
@@ -23,7 +23,7 @@ func NewTable(data [][]string) *Table {
 	return &Table{
 		data:    data,
 		padding: 1,
-		padchar: ' ',
+		padChar: ' ',
 	}
 }
 
@@ -35,13 +35,13 @@ func (t *Table) WithHeaders(headers []string) *Table {
 	return t
 }
 
-func (t *Table) WithMinWidth(minwidth int) *Table {
-	t.minwidth = minwidth
+func (t *Table) WithMinWidth(minWidth int) *Table {
+	t.minWidth = minWidth
 	return t
 }
 
-func (t *Table) WithTabWidth(tabwidth int) *Table {
-	t.tabwidth = tabwidth
+func (t *Table) WithTabWidth(tabWidth int) *Table {
+	t.tabWidth = tabWidth
 	return t
 }
 
@@ -50,8 +50,8 @@ func (t *Table) WithPadding(padding int) *Table {
 	return t
 }
 
-func (t *Table) WithPadChar(padchar byte) *Table {
-	t.padchar = padchar
+func (t *Table) WithPadChar(padChar byte) *Table {
+	t.padChar = padChar
 	return t
 }
 
@@ -75,7 +75,7 @@ func writeRow(tw *tabwriter.Writer, row []string) {
 
 func (t *Table) String() string {
 	sb := strings.Builder{}
-	tw := tabwriter.NewWriter(&sb, t.minwidth, t.tabwidth, t.padding, t.padchar, t.flags)
+	tw := tabwriter.NewWriter(&sb, t.minWidth, t.tabWidth, t.padding, t.padChar, t.flags)
 
 	// Write headers
 	if len(t.headers) > 0 {
