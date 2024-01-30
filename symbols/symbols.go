@@ -117,6 +117,18 @@ const (
 	ArrowLeftRightAlt = "⇆"
 )
 
+// Currency
+
+const (
+	CurrencyDollar  = "$"
+	CurrencyCent    = "¢"
+	CurrencyPound   = "£"
+	CurrencyRupee   = "₹"
+	CurrencyYen     = "¥"
+	CurrencyEuro    = "€"
+	CurrencyBitcoin = "₿"
+)
+
 // Brackets
 
 const (
