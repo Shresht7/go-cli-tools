@@ -7,15 +7,25 @@ import (
 
 type Table struct {
 	data [][]string
+
+	minwidth int
+	tabwidth int
+	padding  int
+	padchar  byte
+	flags    uint
 }
 
 func NewTable(data [][]string) *Table {
-	return &Table{data}
+	return &Table{
+		data:    data,
+		padding: 1,
+		padchar: ' ',
+	}
 }
 
 func (t *Table) String() string {
 	sb := strings.Builder{}
-	tw := tabwriter.NewWriter(&sb, 0, 0, 1, ' ', tabwriter.AlignRight)
+	tw := tabwriter.NewWriter(&sb, t.minwidth, t.tabwidth, t.padding, t.padchar, t.flags)
 
 	for _, row := range t.data {
 		for _, col := range row {
