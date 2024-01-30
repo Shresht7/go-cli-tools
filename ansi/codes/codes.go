@@ -8,19 +8,19 @@ import (
 //	ANSI ESCAPE CODES
 //	=================
 
-//	Escape Code
+// Escape Code
 const ESC = "\u001b"
 
-//	Control Sequence Introducer
+// Control Sequence Introducer
 const CSI = ESC + "["
 
-//	Operating System Command
+// Operating System Command
 const OSC = ESC + "]"
 
-//	Reset Code
+// Reset Code
 const RESET = CSI + "0m"
 
-//	Miscellaneous
+// Miscellaneous
 const CTRL = "^["
 const BEL = "\u0007"
 
@@ -33,7 +33,8 @@ type ANSICode struct {
 	close string
 }
 
-//  Helper function to format the given ANSI codes
+// Helper function to format the given ANSI codes.
+// The last code is the closing code.
 func Code(codes ...string) *ANSICode {
 
 	//	Check if the codes are valid
@@ -41,22 +42,19 @@ func Code(codes ...string) *ANSICode {
 		panic("Invalid ANSI codes")
 	}
 
-	//	The slice of opening codes
+	//	Opening codes: "\u001b[__;__;__m"
 	openCodes := codes[:len(codes)-1]
-	//	The closing code
-	closeCode := codes[len(codes)-1]
-
-	//	Format the codes
 	open := CSI + strings.Join(openCodes, ";") + "m"
+
+	//	The closing code: "\u001b[__m"
+	closeCode := codes[len(codes)-1]
 	close := CSI + closeCode + "m"
 
-	return &ANSICode{
-		open,
-		close,
-	}
+	return &ANSICode{open, close}
+
 }
 
-//	Wrap ANSI Codes around string
+// Wrap ANSI Codes around string
 func Wrap(str string, codes []string, enabled ...bool) string {
 	if enabled[0] {
 		ansiCode := Code(codes...)
