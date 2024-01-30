@@ -5,6 +5,9 @@ import (
 	"text/tabwriter"
 )
 
+// TABLE
+// -----
+
 type Table struct {
 	data [][]string
 
@@ -23,6 +26,37 @@ func NewTable(data [][]string) *Table {
 	}
 }
 
+// CONFIGURATION
+// -------------
+
+func (t *Table) WithMinWidth(minwidth int) *Table {
+	t.minwidth = minwidth
+	return t
+}
+
+func (t *Table) WithTabWidth(tabwidth int) *Table {
+	t.tabwidth = tabwidth
+	return t
+}
+
+func (t *Table) WithPadding(padding int) *Table {
+	t.padding = padding
+	return t
+}
+
+func (t *Table) WithPadChar(padchar byte) *Table {
+	t.padchar = padchar
+	return t
+}
+
+func (t *Table) WithFlags(flags uint) *Table {
+	t.flags = flags
+	return t
+}
+
+// RENDER
+// ------
+
 func (t *Table) String() string {
 	sb := strings.Builder{}
 	tw := tabwriter.NewWriter(&sb, t.minwidth, t.tabwidth, t.padding, t.padchar, t.flags)
@@ -39,6 +73,7 @@ func (t *Table) String() string {
 	return sb.String()
 }
 
+// TODO: Remove this after testing
 func main() {
 	data := [][]string{
 		{"Name", "Cost", "Quantity"},
@@ -46,6 +81,6 @@ func main() {
 		{"Banana", "20", "10"},
 		{"Orange", "15", "8"},
 	}
-	table := NewTable(data)
+	table := NewTable(data).WithFlags(tabwriter.AlignRight)
 	println(table.String())
 }
