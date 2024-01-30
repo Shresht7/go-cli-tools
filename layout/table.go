@@ -1,4 +1,4 @@
-package main
+package layout
 
 import (
 	"strings"
@@ -89,20 +89,4 @@ func (t *Table) String() string {
 
 	tw.Flush()
 	return sb.String()
-}
-
-// TODO: Remove this after testing
-func main() {
-	headers := []string{"Name", "Cost", "Quantity"}
-	data := [][]string{
-		{"Apple", "10", "5"},
-		{"Banana", "20", "10"},
-		{"Orange", "15", "8"},
-	}
-
-	table := NewTable(data).
-		WithHeaders(headers).
-		WithRightAlign(true)
-
-	println(table.String())
 }
