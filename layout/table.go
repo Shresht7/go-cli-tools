@@ -49,8 +49,10 @@ func (t *Table) WithPadChar(padchar byte) *Table {
 	return t
 }
 
-func (t *Table) WithFlags(flags uint) *Table {
-	t.flags = flags
+func (t *Table) WithRightAlign(b bool) *Table {
+	if b {
+		t.flags = tabwriter.AlignRight
+	}
 	return t
 }
 
@@ -81,6 +83,6 @@ func main() {
 		{"Banana", "20", "10"},
 		{"Orange", "15", "8"},
 	}
-	table := NewTable(data).WithFlags(tabwriter.AlignRight)
+	table := NewTable(data).WithRightAlign(true)
 	println(table.String())
 }
