@@ -11,4 +11,7 @@ var (
 	Cross    = colors.Red(symbols.Cross)          // ✖
 	Increase = colors.Green(symbols.TriangleUp)   // ▲
 	Decrease = colors.Green(symbols.TriangleDown) // ▼
+	Warning  = colors.Yellow(symbols.Warning)     // ⚠
+	Error    = colors.Red(symbols.Cross)          // ✖
+	Success  = colors.Green(symbols.Tick)         // ✓
 )
