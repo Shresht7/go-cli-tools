@@ -9,7 +9,8 @@ import (
 // -----
 
 type Table struct {
-	data [][]string
+	headers []string
+	data    [][]string
 
 	minwidth int
 	tabwidth int
@@ -28,6 +29,11 @@ func NewTable(data [][]string) *Table {
 
 // CONFIGURATION
 // -------------
+
+func (t *Table) WithHeaders(headers []string) *Table {
+	t.headers = headers
+	return t
+}
 
 func (t *Table) WithMinWidth(minwidth int) *Table {
 	t.minwidth = minwidth
@@ -63,6 +69,14 @@ func (t *Table) String() string {
 	sb := strings.Builder{}
 	tw := tabwriter.NewWriter(&sb, t.minwidth, t.tabwidth, t.padding, t.padchar, t.flags)
 
+	// Write headers
+	for _, header := range t.headers {
+		tw.Write([]byte(header))
+		tw.Write([]byte("\t"))
+	}
+	tw.Write([]byte("\n"))
+
+	// Write data
 	for _, row := range t.data {
 		for _, col := range row {
 			tw.Write([]byte(col))
@@ -77,12 +91,16 @@ func (t *Table) String() string {
 
 // TODO: Remove this after testing
 func main() {
+	headers := []string{"Name", "Cost", "Quantity"}
 	data := [][]string{
-		{"Name", "Cost", "Quantity"},
 		{"Apple", "10", "5"},
 		{"Banana", "20", "10"},
 		{"Orange", "15", "8"},
 	}
-	table := NewTable(data).WithRightAlign(true)
+
+	table := NewTable(data).
+		WithHeaders(headers).
+		WithRightAlign(true)
+
 	println(table.String())
 }
