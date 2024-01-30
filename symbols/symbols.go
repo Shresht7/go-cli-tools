@@ -1,6 +1,9 @@
 package symbols
 
 const (
+	Degree                                      = "°"
+	DegreeCelsius                               = "℃"
+	DegreeFahrenheit                            = "℉"
 	Square                                      = "█"
 	SquareDarkShade                             = "▓"
 	SquareMediumShade                           = "▒"
