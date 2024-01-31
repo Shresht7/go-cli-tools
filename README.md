@@ -2,26 +2,28 @@
 
 Command-line tools and utilities for Go projects.
 
+[![Go Reference](https://pkg.go.dev/badge/github.com/Shresht7/go-cli-tools.svg)](https://pkg.go.dev/github.com/Shresht7/go-cli-tools)
+
 <details>
 
 <summary>Table of Contents</summary>
 
-- [go-cli-tools](#go-cli-tools)
-  - [📦 ANSI Modules](#-ansi-modules)
-    - [🎨 Colors](#-colors)
-    - [💄 Styles](#-styles)
-    - [☝ Cursor](#-cursor)
-    - [🧼 Clear](#-clear)
-    - [🅰 RegExp](#-regexp)
-  - [📚 Helpers](#-helpers)
-    - [🏭 Composition](#-composition)
-  - [📃 Format](#-format)
-    - [Align](#align)
-    - [HereDoc](#heredoc)
-    - [Pad](#pad)
-  - [✔ Symbols](#-symbols)
-  - [✔ Status](#-status)
-  - [📑 License](#-license)
+- [📦 ANSI Modules](#-ansi-modules)
+  - [🎨 Colors](#-colors)
+  - [💄 Styles](#-styles)
+  - [☝ Cursor](#-cursor)
+  - [🧼 Clear](#-clear)
+  - [🅰 RegExp](#-regexp)
+- [📚 Helpers](#-helpers)
+  - [🏭 Composition](#-composition)
+- [📃 Format](#-format)
+  - [Align](#align)
+  - [HereDoc](#heredoc)
+  - [Pad](#pad)
+- [📦 Layout](#-layout)
+- [✔ Symbols](#-symbols)
+- [✔ Status](#-status)
+- [📑 License](#-license)
 
 </details>
 
@@ -198,6 +200,20 @@ fmt.Println(format.Pad(text, " ", 5))
   [⬆ Back to Top][top]
 
 </div>
+
+---
+
+## 📦 Layout
+
+Create a table.
+
+```go
+import "github.com/Shresht7/go-cli-tools/layout"
+
+var data [][]string // ...
+table := layout.NewTable(data)
+fmt.Println(table.String())
+```
 
 ---
 
