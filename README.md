@@ -1,4 +1,4 @@
-# go-cli-tools
+# `go-cli-tools`
 
 Command-line tools and utilities for Go projects.
 
