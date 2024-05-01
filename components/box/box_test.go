@@ -14,3 +14,14 @@ func Example() {
 	// │ Hello World! │
 	// └──────────────┘
 }
+
+func Title_Example() {
+	box := box.New("Hello World!")
+	box.SetTitle("Title")
+	box.SetTitleAlignment("Left")
+	fmt.Println(box)
+	// Output:
+	// ┌─ Title ──────┐
+	// │ Hello World! │
+	// └──────────────┘
+}

@@ -3,21 +3,37 @@ package box
 import (
 	"strings"
 
+	"github.com/Shresht7/go-cli-tools/format"
 	"github.com/Shresht7/go-cli-tools/helpers"
 )
 
 // Box represents a box with content and a border
 type Box struct {
-	content string    // The content of the box
-	border  BoxBorder // The borders of the box
+	content string // The content of the box
+
+	title          string // The title of the box
+	titleAlignment string // The alignment of the title
+
+	border BoxBorder // The borders of the box
 }
 
 // Instantiates a new Box with the given content
 func New(content string) *Box {
 	return &Box{
+		title:   "",
 		content: content,
 		border:  BorderSingle,
 	}
+}
+
+// Sets the title of the box
+func (b *Box) SetTitle(title string) {
+	b.title = title
+}
+
+// Sets the alignment of the title
+func (b *Box) SetTitleAlignment(alignment string) {
+	b.titleAlignment = alignment
 }
 
 // Sets the borders of the box
@@ -52,6 +68,14 @@ func (b *Box) String() string {
 
 // Creates the top border of the box
 func (b *Box) createTopBorder(maxWidth int) string {
+	if b.title != "" {
+		title := format.Align(" "+b.title+" ", &format.AlignOptions{
+			Mode:  b.titleAlignment,
+			Pad:   b.border.top,
+			Width: maxWidth,
+		})
+		return b.border.topLeft + b.border.top + title + b.border.top + b.border.topRight
+	}
 	return b.border.topLeft + strings.Repeat(b.border.top, maxWidth+2) + b.border.topRight
 }
 
