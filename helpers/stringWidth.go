@@ -16,6 +16,11 @@ func StringWidth(s string) int {
 	// ? project is to have zero dependencies, so the implementation for this is
 	// ? fairly simple.
 
+	width := 0
+	for range s {
+		width++
+	}
+
 	// Return the length of the string
-	return len(s)
+	return width
 }
