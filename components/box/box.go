@@ -27,18 +27,21 @@ func New(content string) *Box {
 }
 
 // Sets the title of the box
-func (b *Box) SetTitle(title string) {
+func (b *Box) WithTitle(title string) *Box {
 	b.title = title
+	return b
 }
 
 // Sets the alignment of the title
-func (b *Box) SetTitleAlignment(alignment string) {
+func (b *Box) WithTitleAlignment(alignment string) *Box {
 	b.titleAlignment = alignment
+	return b
 }
 
 // Sets the borders of the box
-func (b *Box) SetBorder(border BoxBorder) {
+func (b *Box) WithBorder(border BoxBorder) *Box {
 	b.border = border
+	return b
 }
 
 // Returns the string representation of the box

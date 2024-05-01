@@ -16,9 +16,9 @@ func Example() {
 }
 
 func Title_Example() {
-	box := box.New("Hello World!")
-	box.SetTitle("Title")
-	box.SetTitleAlignment("Left")
+	box := box.New("Hello World!").
+		WithTitle("Title").
+		WithTitleAlignment("Left")
 	fmt.Println(box)
 	// Output:
 	// ┌─ Title ──────┐
