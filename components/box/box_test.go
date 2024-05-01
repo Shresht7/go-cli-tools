@@ -7,7 +7,7 @@ import (
 )
 
 func Example() {
-	box := box.NewBox("Hello World!")
+	box := box.New("Hello World!")
 	fmt.Println(box)
 	// Output:
 	// ┌──────────────┐
