@@ -8,6 +8,7 @@ import (
 // TABLE
 // -----
 
+// A struct to represent a table
 type Table struct {
 	headers []string
 	data    [][]string
@@ -19,6 +20,7 @@ type Table struct {
 	flags    uint
 }
 
+// Instantiates a new table with the given data
 func NewTable(data [][]string) *Table {
 	return &Table{
 		data:    data,
@@ -30,31 +32,37 @@ func NewTable(data [][]string) *Table {
 // CONFIGURATION
 // -------------
 
+// Use the given headers for the table
 func (t *Table) WithHeaders(headers []string) *Table {
 	t.headers = headers
 	return t
 }
 
+// Use the given minimum width for columns
 func (t *Table) WithMinWidth(minWidth int) *Table {
 	t.minWidth = minWidth
 	return t
 }
 
+// Use the given tab width for columns
 func (t *Table) WithTabWidth(tabWidth int) *Table {
 	t.tabWidth = tabWidth
 	return t
 }
 
+// Use the given padding for columns
 func (t *Table) WithPadding(padding int) *Table {
 	t.padding = padding
 	return t
 }
 
+// Use the given padding character for spacing
 func (t *Table) WithPadChar(padChar byte) *Table {
 	t.padChar = padChar
 	return t
 }
 
+// Align columns to the right instead of the left
 func (t *Table) WithRightAlign(b bool) *Table {
 	if b {
 		t.flags = tabwriter.AlignRight
@@ -65,6 +73,7 @@ func (t *Table) WithRightAlign(b bool) *Table {
 // RENDER
 // ------
 
+// Writes a row to the table writer
 func writeRow(tw *tabwriter.Writer, row []string) {
 	for _, col := range row {
 		tw.Write([]byte(col))
@@ -73,6 +82,7 @@ func writeRow(tw *tabwriter.Writer, row []string) {
 	tw.Write([]byte("\n"))
 }
 
+// Renders the table to a string
 func (t *Table) String() string {
 	sb := strings.Builder{}
 	tw := tabwriter.NewWriter(&sb, t.minWidth, t.tabWidth, t.padding, t.padChar, t.flags)
