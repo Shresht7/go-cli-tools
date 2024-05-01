@@ -26,6 +26,12 @@ func New(content string) *Box {
 	}
 }
 
+// Sets the content of the box
+func (b *Box) WithContent(content string) *Box {
+	b.content = content
+	return b
+}
+
 // Sets the title of the box
 func (b *Box) WithTitle(title string) *Box {
 	b.title = title
