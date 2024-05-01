@@ -2,6 +2,8 @@ package components
 
 import (
 	"strings"
+
+	"github.com/Shresht7/go-cli-tools/helpers"
 )
 
 type BoxBorder struct {
@@ -52,7 +54,7 @@ func (b *Box) String() string {
 	lines := strings.Split(b.content, "\n")
 
 	// Find the longest line
-	maxWidth := getMaxWidth(lines)
+	maxWidth := helpers.GetMaxLineWidth(lines)
 
 	// Transform the content lines
 	for i, line := range lines {
@@ -70,15 +72,4 @@ func (b *Box) String() string {
 	// Join the lines
 	return strings.Join(lines, "\n")
 
-}
-
-// getMaxWidth returns the length of the longest line in the given slice of strings
-func getMaxWidth(lines []string) int {
-	maxWidth := 0
-	for _, line := range lines {
-		if len(line) > maxWidth {
-			maxWidth = len(line)
-		}
-	}
-	return maxWidth
 }
