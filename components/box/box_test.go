@@ -1,13 +1,13 @@
-package components_test
+package box_test
 
 import (
 	"fmt"
 
-	"github.com/Shresht7/go-cli-tools/components"
+	"github.com/Shresht7/go-cli-tools/components/box"
 )
 
 func Example() {
-	box := components.NewBox("Hello World!")
+	box := box.NewBox("Hello World!")
 	fmt.Println(box)
 	// Output:
 	// ┌──────────────┐
