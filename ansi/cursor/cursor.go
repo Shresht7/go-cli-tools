@@ -74,3 +74,11 @@ func Restore(mode string) string {
 	}
 	return codes.CSI + "u"
 }
+
+// GetPosition returns the current cursor position
+func GetPosition() (int, int) {
+	fmt.Print(RequestPosition)
+	var row, column int
+	fmt.Scan(&row, &column)
+	return row, column
+}
