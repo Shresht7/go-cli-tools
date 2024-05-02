@@ -8,11 +8,16 @@ import (
 //	ANSI ESCAPE CODES
 //	=================
 
-// Escape Code
-const ESC = "\u001b"
+const (
+	ESC   = "\u001b"   // Escape Code
+	CSI   = ESC + "["  // Control Sequence Introducer
+	OSC   = ESC + "]"  // Operating System Command
+	RESET = CSI + "0m" // Reset Code
+	CTRL  = "^["       // Control character prefix
+	BEL   = "\u0007"   // Bell character
+)
 
-// Control Sequence Introducer
-const CSI = ESC + "["
+// ----------
 
 // Operating System Command
 const OSC = ESC + "]"
