@@ -1,3 +1,4 @@
+// Provides ANSI escape codes for clearing the terminal screen
 package clear
 
 import (
@@ -5,30 +6,30 @@ import (
 )
 
 const (
-	//	Clears the screen
+	// Clears the screen
 	Screen = codes.CSI + "J"
 
-	//	Clears cursor and below
+	// Clears cursor and below
 	CursorAndBelow = codes.CSI + "0J"
 
-	//	Clears cursor and above
+	// Clears cursor and above
 	CursorAndAbove = codes.CSI + "1J"
 
-	//	Clears the entire screen
+	// Clears the entire screen
 	EntireScreen = codes.CSI + "2J"
 
-	//	Clears saved lines
+	// Clears saved lines
 	SavedLines = codes.CSI + "3J"
 
-	//	Clear line
+	// Clears the current line
 	Line = codes.CSI + "K"
 
-	//	Clear line from cursor
+	// Clears the line, starting from the cursor to the end
 	LineFromCursor = codes.CSI + "0K"
 
-	//	Clear line to cursor
+	// Clears the line, starting from the beginning and ending on the cursor
 	LineToCursor = codes.CSI + "1K"
 
-	//	Clear entire line
+	//	Clears the entire line
 	EntireLine = codes.CSI + "2K"
 )
