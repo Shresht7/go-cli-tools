@@ -18,19 +18,21 @@ const (
 )
 
 // ----------
-
-// Operating System Command
-const OSC = ESC + "]"
-
-// Reset Code
-const RESET = CSI + "0m"
-
-// Miscellaneous
-const CTRL = "^["
-const BEL = "\u0007"
+// IS ENABLED
+// ----------
 
 // Global variable to control whether the ANSI codes are enabled or not
-var IS_ENABLED = true
+var isEnabled = true
+
+// Enable ANSI codes
+func Enable() {
+	isEnabled = true
+}
+
+// Disable ANSI codes
+func Disable() {
+	isEnabled = false
+}
 
 //	-------
 //	HELPERS
@@ -59,7 +61,7 @@ func Code(codes ...string) (open, close string) {
 
 // Wrap ANSI Codes around string
 func Wrap(str string, codes []string) string {
-	if IS_ENABLED {
+	if isEnabled {
 		open, close := Code(codes...)
 		str = open + str + close
 	}
