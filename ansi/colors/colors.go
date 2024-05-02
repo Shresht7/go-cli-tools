@@ -71,42 +71,42 @@ func init() {
 
 // Colors the string black
 func Black(str string) string {
-	return codes.Wrap(str, colors["black"])
+	return codes.New(colors["black"]).Wrap(str)
 }
 
 // Colors the string red
 func Red(str string) string {
-	return codes.Wrap(str, colors["red"])
+	return codes.New(colors["red"]).Wrap(str)
 }
 
 // Colors the string green
 func Green(str string) string {
-	return codes.Wrap(str, colors["green"])
+	return codes.New(colors["green"]).Wrap(str)
 }
 
 // Colors the string yellow
 func Yellow(str string) string {
-	return codes.Wrap(str, colors["yellow"])
+	return codes.New(colors["yellow"]).Wrap(str)
 }
 
 // Colors the string blue
 func Blue(str string) string {
-	return codes.Wrap(str, colors["blue"])
+	return codes.New(colors["blue"]).Wrap(str)
 }
 
 // Colors the string magenta
 func Magenta(str string) string {
-	return codes.Wrap(str, colors["magenta"])
+	return codes.New(colors["magenta"]).Wrap(str)
 }
 
 // Colors the string cyan
 func Cyan(str string) string {
-	return codes.Wrap(str, colors["cyan"])
+	return codes.New(colors["cyan"]).Wrap(str)
 }
 
 // Colors the string white
 func White(str string) string {
-	return codes.Wrap(str, colors["white"])
+	return codes.New(colors["white"]).Wrap(str)
 }
 
 //	BRIGHT FOREGROUND
@@ -114,42 +114,42 @@ func White(str string) string {
 
 // Colors the string brightBlack
 func BrightBlack(str string) string {
-	return codes.Wrap(str, colors["brightBlack"])
+	return codes.New(brightColors["brightBlack"]).Wrap(str)
 }
 
 // Colors the string brightRed
 func BrightRed(str string) string {
-	return codes.Wrap(str, colors["brightRed"])
+	return codes.New(brightColors["brightRed"]).Wrap(str)
 }
 
 // Colors the string brightGreen
 func BrightGreen(str string) string {
-	return codes.Wrap(str, colors["brightGreen"])
+	return codes.New(brightColors["brightGreen"]).Wrap(str)
 }
 
 // Colors the string brightYellow
 func BrightYellow(str string) string {
-	return codes.Wrap(str, colors["brightYellow"])
+	return codes.New(brightColors["brightYellow"]).Wrap(str)
 }
 
 // Colors the string brightBlue
 func BrightBlue(str string) string {
-	return codes.Wrap(str, colors["brightBlue"])
+	return codes.New(brightColors["brightBlue"]).Wrap(str)
 }
 
 // Colors the string magenta
 func BrightMagenta(str string) string {
-	return codes.Wrap(str, colors["brightMagenta"])
+	return codes.New(brightColors["brightMagenta"]).Wrap(str)
 }
 
 // Colors the string brightCyan
 func BrightCyan(str string) string {
-	return codes.Wrap(str, colors["brightCyan"])
+	return codes.New(brightColors["brightCyan"]).Wrap(str)
 }
 
 // Colors the string brightWhite
 func BrightWhite(str string) string {
-	return codes.Wrap(str, colors["brightWhite"])
+	return codes.New(brightColors["brightWhite"]).Wrap(str)
 }
 
 //	BACKGROUND
@@ -157,42 +157,42 @@ func BrightWhite(str string) string {
 
 // Colors the string bgBlack
 func BgBlack(str string) string {
-	return codes.Wrap(str, colors["bgBlack"])
+	return codes.New(bgColors["bgBlack"]).Wrap(str)
 }
 
 // Colors the string bgRed
 func BgRed(str string) string {
-	return codes.Wrap(str, colors["bgRed"])
+	return codes.New(bgColors["bgRed"]).Wrap(str)
 }
 
 // Colors the string bgGreen
 func BgGreen(str string) string {
-	return codes.Wrap(str, colors["bgGreen"])
+	return codes.New(bgColors["bgGreen"]).Wrap(str)
 }
 
 // Colors the string bgYellow
 func BgYellow(str string) string {
-	return codes.Wrap(str, colors["bgYellow"])
+	return codes.New(bgColors["bgYellow"]).Wrap(str)
 }
 
 // Colors the string bgBlue
 func BgBlue(str string) string {
-	return codes.Wrap(str, colors["bgBlue"])
+	return codes.New(bgColors["bgBlue"]).Wrap(str)
 }
 
 // Colors the string magenta
 func BgMagenta(str string) string {
-	return codes.Wrap(str, colors["bgMagenta"])
+	return codes.New(bgColors["bgMagenta"]).Wrap(str)
 }
 
 // Colors the string bgCyan
 func BgCyan(str string) string {
-	return codes.Wrap(str, colors["bgCyan"])
+	return codes.New(bgColors["bgCyan"]).Wrap(str)
 }
 
 // Colors the string bgWhite
 func BgWhite(str string) string {
-	return codes.Wrap(str, colors["bgWhite"])
+	return codes.New(bgColors["bgWhite"]).Wrap(str)
 }
 
 //	BRIGHT BACKGROUND
@@ -200,42 +200,42 @@ func BgWhite(str string) string {
 
 // Colors the string brightBgBlack
 func BrightBgBlack(str string) string {
-	return codes.Wrap(str, colors["brightBgBlack"])
+	return codes.New(brightBgColors["brightBgBlack"]).Wrap(str)
 }
 
 // Colors the string brightBgRed
 func BrightBgRed(str string) string {
-	return codes.Wrap(str, colors["brightBgRed"])
+	return codes.New(brightBgColors["brightBgRed"]).Wrap(str)
 }
 
 // Colors the string brightBgGreen
 func BrightBgGreen(str string) string {
-	return codes.Wrap(str, colors["brightBgGreen"])
+	return codes.New(brightBgColors["brightBgGreen"]).Wrap(str)
 }
 
 // Colors the string brightBgYellow
 func BrightBgYellow(str string) string {
-	return codes.Wrap(str, colors["brightBgYellow"])
+	return codes.New(brightBgColors["brightBgYellow"]).Wrap(str)
 }
 
 // Colors the string brightBgBlue
 func BrightBgBlue(str string) string {
-	return codes.Wrap(str, colors["brightBgBlue"])
+	return codes.New(brightBgColors["brightBgBlue"]).Wrap(str)
 }
 
 // Colors the string magenta
 func BrightBgMagenta(str string) string {
-	return codes.Wrap(str, colors["brightBgMagenta"])
+	return codes.New(brightBgColors["brightBgMagenta"]).Wrap(str)
 }
 
 // Colors the string brightBgCyan
 func BrightBgCyan(str string) string {
-	return codes.Wrap(str, colors["brightBgCyan"])
+	return codes.New(brightBgColors["brightBgCyan"]).Wrap(str)
 }
 
 // Colors the string brightBgWhite
 func BrightBgWhite(str string) string {
-	return codes.Wrap(str, colors["brightBgWhite"])
+	return codes.New(brightBgColors["brightBgWhite"]).Wrap(str)
 }
 
 //	RGB

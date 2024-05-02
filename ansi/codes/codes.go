@@ -38,32 +38,35 @@ func Disable() {
 //	HELPERS
 //	-------
 
-// Helper function to format the given ANSI codes.
-// The last code is the closing code.
-func Code(codes ...string) (open, close string) {
-
-	//	Check if the codes are valid
-	if len(codes) < 2 {
-		panic("Invalid ANSI codes")
-	}
-
-	//	Opening codes: "\u001b[__;__;__m"
-	openCodes := codes[:len(codes)-1]
-	open = CSI + strings.Join(openCodes, ";") + "m"
-
-	//	The closing code: "\u001b[__m"
-	closeCode := codes[len(codes)-1]
-	close = CSI + closeCode + "m"
-
-	return open, close
-
+// A struct to represent an ANSI code
+type ANSICode struct {
+	open  string
+	close string
 }
 
-// Wrap ANSI Codes around string
-func Wrap(str string, codes []string) string {
+// Create a new ANSI code with the given codes.
+// The last code is used as the closing code.
+func New(codes []string) *ANSICode {
+	// Check if the codes are valid
+	if len(codes) < 2 {
+		codes = append(codes, "0")
+	}
+
+	// Opening codes: "\u001b[__;__;__m"
+	openCodes := codes[:len(codes)-1]
+	open := CSI + strings.Join(openCodes, ";") + "m"
+
+	// The closing code: "\u001b[__m"
+	closeCode := codes[len(codes)-1]
+	close := CSI + closeCode + "m"
+
+	return &ANSICode{open, close}
+}
+
+// Wrap ANSI codes around a strings
+func (code *ANSICode) Wrap(str string) string {
 	if isEnabled {
-		open, close := Code(codes...)
-		str = open + str + close
+		return code.open + str + code.close
 	}
 	return str
 }
