@@ -8,7 +8,7 @@ import (
 	"github.com/Shresht7/go-cli-tools/ansi/codes"
 )
 
-//	Base Colors
+// Base Colors
 var baseColors = map[string][2]int{
 	"black":   {30, 39},
 	"red":     {31, 39},
@@ -21,25 +21,25 @@ var baseColors = map[string][2]int{
 	"default": {39, 39},
 }
 
-//	Background  color offset
+// Background  color offset
 const BG_OFFSET = 10
 
-//	Bright color offset
+// Bright color offset
 const BRIGHT_OFFSET = 60
 
-//	Foreground Colors
+// Foreground Colors
 var colors = make(map[string][]string)
 
-//	Background Colors
+// Background Colors
 var bgColors = make(map[string][]string)
 
-//	Bright Foreground Colors
+// Bright Foreground Colors
 var brightColors = make(map[string][]string)
 
-//	Bright Background Colors
+// Bright Background Colors
 var brightBgColors = make(map[string][]string)
 
-//	Formats given integers as a string tuple
+// Formats given integers as a string tuple
 func itoaSlice(i ...int) []string {
 	var s []string
 	for _, v := range i {
@@ -48,7 +48,7 @@ func itoaSlice(i ...int) []string {
 	return s
 }
 
-//	Capitalizes a string
+// Capitalizes a string
 func capitalize(s string) string {
 	return strings.ToUpper(string(s[0])) + s[1:]
 }
@@ -69,184 +69,184 @@ func init() {
 //	FOREGROUND
 //	----------
 
-//	Colors the string black
+// Colors the string black
 func Black(str string) string {
-	return codes.Wrap(str, colors["black"], true)
+	return codes.Wrap(str, colors["black"])
 }
 
-//	Colors the string red
+// Colors the string red
 func Red(str string) string {
-	return codes.Wrap(str, colors["red"], true)
+	return codes.Wrap(str, colors["red"])
 }
 
-//	Colors the string green
+// Colors the string green
 func Green(str string) string {
-	return codes.Wrap(str, colors["green"], true)
+	return codes.Wrap(str, colors["green"])
 }
 
-//	Colors the string yellow
+// Colors the string yellow
 func Yellow(str string) string {
-	return codes.Wrap(str, colors["yellow"], true)
+	return codes.Wrap(str, colors["yellow"])
 }
 
-//	Colors the string blue
+// Colors the string blue
 func Blue(str string) string {
-	return codes.Wrap(str, colors["blue"], true)
+	return codes.Wrap(str, colors["blue"])
 }
 
-//	Colors the string magenta
+// Colors the string magenta
 func Magenta(str string) string {
-	return codes.Wrap(str, colors["magenta"], true)
+	return codes.Wrap(str, colors["magenta"])
 }
 
-//	Colors the string cyan
+// Colors the string cyan
 func Cyan(str string) string {
-	return codes.Wrap(str, colors["cyan"], true)
+	return codes.Wrap(str, colors["cyan"])
 }
 
-//	Colors the string white
+// Colors the string white
 func White(str string) string {
-	return codes.Wrap(str, colors["white"], true)
+	return codes.Wrap(str, colors["white"])
 }
 
 //	BRIGHT FOREGROUND
 //	-----------------
 
-//	Colors the string brightBlack
+// Colors the string brightBlack
 func BrightBlack(str string) string {
-	return codes.Wrap(str, colors["brightBlack"], true)
+	return codes.Wrap(str, colors["brightBlack"])
 }
 
-//	Colors the string brightRed
+// Colors the string brightRed
 func BrightRed(str string) string {
-	return codes.Wrap(str, colors["brightRed"], true)
+	return codes.Wrap(str, colors["brightRed"])
 }
 
-//	Colors the string brightGreen
+// Colors the string brightGreen
 func BrightGreen(str string) string {
-	return codes.Wrap(str, colors["brightGreen"], true)
+	return codes.Wrap(str, colors["brightGreen"])
 }
 
-//	Colors the string brightYellow
+// Colors the string brightYellow
 func BrightYellow(str string) string {
-	return codes.Wrap(str, colors["brightYellow"], true)
+	return codes.Wrap(str, colors["brightYellow"])
 }
 
-//	Colors the string brightBlue
+// Colors the string brightBlue
 func BrightBlue(str string) string {
-	return codes.Wrap(str, colors["brightBlue"], true)
+	return codes.Wrap(str, colors["brightBlue"])
 }
 
-//	Colors the string magenta
+// Colors the string magenta
 func BrightMagenta(str string) string {
-	return codes.Wrap(str, colors["brightMagenta"], true)
+	return codes.Wrap(str, colors["brightMagenta"])
 }
 
-//	Colors the string brightCyan
+// Colors the string brightCyan
 func BrightCyan(str string) string {
-	return codes.Wrap(str, colors["brightCyan"], true)
+	return codes.Wrap(str, colors["brightCyan"])
 }
 
-//	Colors the string brightWhite
+// Colors the string brightWhite
 func BrightWhite(str string) string {
-	return codes.Wrap(str, colors["brightWhite"], true)
+	return codes.Wrap(str, colors["brightWhite"])
 }
 
 //	BACKGROUND
 //	----------
 
-//	Colors the string bgBlack
+// Colors the string bgBlack
 func BgBlack(str string) string {
-	return codes.Wrap(str, colors["bgBlack"], true)
+	return codes.Wrap(str, colors["bgBlack"])
 }
 
-//	Colors the string bgRed
+// Colors the string bgRed
 func BgRed(str string) string {
-	return codes.Wrap(str, colors["bgRed"], true)
+	return codes.Wrap(str, colors["bgRed"])
 }
 
-//	Colors the string bgGreen
+// Colors the string bgGreen
 func BgGreen(str string) string {
-	return codes.Wrap(str, colors["bgGreen"], true)
+	return codes.Wrap(str, colors["bgGreen"])
 }
 
-//	Colors the string bgYellow
+// Colors the string bgYellow
 func BgYellow(str string) string {
-	return codes.Wrap(str, colors["bgYellow"], true)
+	return codes.Wrap(str, colors["bgYellow"])
 }
 
-//	Colors the string bgBlue
+// Colors the string bgBlue
 func BgBlue(str string) string {
-	return codes.Wrap(str, colors["bgBlue"], true)
+	return codes.Wrap(str, colors["bgBlue"])
 }
 
-//	Colors the string magenta
+// Colors the string magenta
 func BgMagenta(str string) string {
-	return codes.Wrap(str, colors["bgMagenta"], true)
+	return codes.Wrap(str, colors["bgMagenta"])
 }
 
-//	Colors the string bgCyan
+// Colors the string bgCyan
 func BgCyan(str string) string {
-	return codes.Wrap(str, colors["bgCyan"], true)
+	return codes.Wrap(str, colors["bgCyan"])
 }
 
-//	Colors the string bgWhite
+// Colors the string bgWhite
 func BgWhite(str string) string {
-	return codes.Wrap(str, colors["bgWhite"], true)
+	return codes.Wrap(str, colors["bgWhite"])
 }
 
 //	BRIGHT BACKGROUND
 //	-----------------
 
-//	Colors the string brightBgBlack
+// Colors the string brightBgBlack
 func BrightBgBlack(str string) string {
-	return codes.Wrap(str, colors["brightBgBlack"], true)
+	return codes.Wrap(str, colors["brightBgBlack"])
 }
 
-//	Colors the string brightBgRed
+// Colors the string brightBgRed
 func BrightBgRed(str string) string {
-	return codes.Wrap(str, colors["brightBgRed"], true)
+	return codes.Wrap(str, colors["brightBgRed"])
 }
 
-//	Colors the string brightBgGreen
+// Colors the string brightBgGreen
 func BrightBgGreen(str string) string {
-	return codes.Wrap(str, colors["brightBgGreen"], true)
+	return codes.Wrap(str, colors["brightBgGreen"])
 }
 
-//	Colors the string brightBgYellow
+// Colors the string brightBgYellow
 func BrightBgYellow(str string) string {
-	return codes.Wrap(str, colors["brightBgYellow"], true)
+	return codes.Wrap(str, colors["brightBgYellow"])
 }
 
-//	Colors the string brightBgBlue
+// Colors the string brightBgBlue
 func BrightBgBlue(str string) string {
-	return codes.Wrap(str, colors["brightBgBlue"], true)
+	return codes.Wrap(str, colors["brightBgBlue"])
 }
 
-//	Colors the string magenta
+// Colors the string magenta
 func BrightBgMagenta(str string) string {
-	return codes.Wrap(str, colors["brightBgMagenta"], true)
+	return codes.Wrap(str, colors["brightBgMagenta"])
 }
 
-//	Colors the string brightBgCyan
+// Colors the string brightBgCyan
 func BrightBgCyan(str string) string {
-	return codes.Wrap(str, colors["brightBgCyan"], true)
+	return codes.Wrap(str, colors["brightBgCyan"])
 }
 
-//	Colors the string brightBgWhite
+// Colors the string brightBgWhite
 func BrightBgWhite(str string) string {
-	return codes.Wrap(str, colors["brightBgWhite"], true)
+	return codes.Wrap(str, colors["brightBgWhite"])
 }
 
 //	RGB
 //	---
 
-//	Color the string with RGB values
+// Color the string with RGB values
 func RGB(str string, r, g, b int) string {
 	return codes.CSI + fmt.Sprintf("38;2;%d;%d;%dm%s%s", r, g, b, str, codes.RESET)
 }
 
-//	Color the string bg with RGB values
+// Color the string bg with RGB values
 func BgRGB(str string, r, g, b int) string {
 	return codes.CSI + fmt.Sprintf("48;2;%d;%d;%dm%s%s", r, g, b, str, codes.RESET)
 }

@@ -24,6 +24,9 @@ const RESET = CSI + "0m"
 const CTRL = "^["
 const BEL = "\u0007"
 
+// Global variable to control whether the ANSI codes are enabled or not
+var IS_ENABLED = true
+
 //	-------
 //	HELPERS
 //	-------
@@ -50,8 +53,8 @@ func Code(codes ...string) (open, close string) {
 }
 
 // Wrap ANSI Codes around string
-func Wrap(str string, codes []string, enabled ...bool) string {
-	if enabled[0] {
+func Wrap(str string, codes []string) string {
+	if IS_ENABLED {
 		open, close := Code(codes...)
 		str = open + str + close
 	}
